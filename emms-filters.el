@@ -879,7 +879,7 @@ Uses a regex anchoring dirname to the beginning of the expanded path."
 (defun emms-filters-make-filter-not-played-within (days)
   "Make a not played since DAYS filter."
   (lambda (track)
-    (funcall (emms-filters-make-filter-played-within days) track)))
+    (not (funcall (emms-filters-make-filter-played-within days) track))))
 
 (emms-filters-register-filter-factory "Not played since"
                              'emms-filters-make-filter-not-played-within
